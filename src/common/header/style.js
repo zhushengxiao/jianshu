@@ -21,10 +21,11 @@ export const Logo = styled.a.attrs({
 `
 
 export const Nav = styled.div`
-	width: 960px;
+	width: 90%;
 	height: 100%;
-	margin: 0 auto;
-	padding-right: 70px;
+	margin-left: 80px;
+	min-width: 760px;
+	padding-left: 40px;
 	box-sizing: border-box;
 `
 
@@ -103,9 +104,8 @@ export const NavSearch = styled.input.attrs({
 `
 
 export const Addition = styled.div`
-	position: absolute;
-	right: 0;
-	top: 0;
+	position: relative;
+	float: right;
 	height: 56px;
 `
 
@@ -126,3 +126,46 @@ export const Button = styled.div`
 		background: #ec6149;
 	}
 `
+
+export const SearchInfo = styled.div`
+	position: absolute;
+	top: 56px;
+	left: 0;
+	width: 240px;
+	padding: 0 20px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+`
+
+export const SearchInfoTitle = styled.div`
+	margin-top: 20px;
+	margin-bottom: 15px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #787878;
+`
+
+export const SearchInfoSwitch = styled.span`
+	float: right;
+	font-size: 13px;
+`
+
+export const SearchInfoList = styled.div`
+	overflow: hidden;
+`
+
+export const SearchInfoItem = styled.a`
+	display: block;
+	float: left;
+	line-height: 20px;
+	padding: 0 5px;
+	font-size: 12px;
+	border: 1px solid #ddd;
+	color: #787878;
+	border-radius: 3px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+`
+
+export const SearchInfoContent = styled.div``
+
+export const SearchInfoFooter = styled.div``

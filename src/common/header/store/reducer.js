@@ -1,22 +1,20 @@
 /* eslint-disable default-case */
 /* eslint-disable no-duplicate-case */
 import * as actionTypes from './actionTypes'
-const defaultState = {
+import { fromJS } from 'immutable'
+const defaultState = fromJS({
 	isFocused: false,
-}
+	list: [],
+})
 
 export default (state = defaultState, action) => {
 	switch (action.type) {
 		case actionTypes.SEARCH_FOCUS:
-			return {
-				...state,
-				isFocused: true,
-			}
+			return state.set('isFocused', true)
 		case actionTypes.SEARCH_BLUR:
-			return {
-				...state,
-				isFocused: false,
-			}
+			return state.set('isFocused', false)
+		case actionTypes.CHANGE_LIST:
+			return state.set('list', action.data)
 	}
 	return state
 }
