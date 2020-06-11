@@ -1,12 +1,14 @@
 import React from 'react'
 import './App.css'
 import Header from './common/header/index'
+import { Provider } from 'react-redux'
+import store from './store'
 
 function App() {
 	return (
-		<div>
-			<Header></Header>
-		</div>
+		<Provider store={store}>
+			<Header />
+		</Provider>
 	)
 }
 
