@@ -1,21 +1,6 @@
-/* eslint-disable default-case */
-/* eslint-disable no-duplicate-case */
-const defaultState = {
-	isFocused: false,
-}
+import { combineReducers } from 'redux'
+import { reducer as HeaderReducer } from '../common/header/store'
 
-export default (state = defaultState, action) => {
-	switch (action.type) {
-		case 'search_focus':
-			return {
-				...state,
-				isFocused: true,
-			}
-		case 'search_blur':
-			return {
-				...state,
-				isFocused: false,
-			}
-	}
-	return state
-}
+export default combineReducers({
+	header: HeaderReducer,
+})
