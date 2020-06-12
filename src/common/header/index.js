@@ -17,6 +17,8 @@ import {
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../../page/login/store'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
 	getListArea = () => {
@@ -83,12 +85,16 @@ class Header extends Component {
 			handleInputFocus,
 			handleInputBlur,
 			list,
+			handleLogout,
+			isLogined,
 		} = this.props
 		return (
 			<HeaderWrapper>
 				<Logo />
 				<Nav>
-					<NavItem className="left active">首页</NavItem>
+					<Link to="/">
+						<NavItem className="left active">首页</NavItem>
+					</Link>
 					<NavItem className="left">下载App</NavItem>
 
 					<SearchWarpper>
@@ -115,13 +121,23 @@ class Header extends Component {
 						{this.getListArea()}
 					</SearchWarpper>
 					<Addition>
-						<Button className="writting">
-							<i className="iconfont articlIcon">&#xe96c;</i>
-							写文章
-						</Button>
+						<Link to="/write">
+							<Button className="writting">
+								<i className="iconfont articlIcon">&#xe96c;</i>
+								写文章
+							</Button>
+						</Link>
 						<Button className="reg">注册</Button>
 					</Addition>
-					<NavItem className="right">登录</NavItem>
+					{isLogined ? (
+						<NavItem onClick={handleLogout} className="right">
+							退出
+						</NavItem>
+					) : (
+						<Link to="/login">
+							<NavItem className="right">登录</NavItem>
+						</Link>
+					)}
 					<NavItem className="right">
 						<i className="iconfont">&#xe636;</i>``
 					</NavItem>
@@ -137,6 +153,7 @@ const mapStateToProps = (state) => ({
 	list: state.getIn(['header', 'list']),
 	page: state.getIn(['header', 'page']),
 	totalPage: state.getIn(['header', 'totalPage']),
+	isLogined: state.getIn(['login', 'isLogined']),
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -168,6 +185,9 @@ const mapDispatchToProps = (dispatch) => ({
 		} else {
 			dispatch(actionCreators.changePage(0))
 		}
+	},
+	handleLogout() {
+		dispatch(loginActionCreators.logout())
 	},
 })
 

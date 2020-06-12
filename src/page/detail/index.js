@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { DetailWrapper, Header, Content } from './styled'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 
 class Detail extends Component {
 	componentDidMount() {
-		console.log('this.props.match.params.id', this.props.match.params.id)
 		this.props.getDetail(this.props.match.params.id)
 	}
 
@@ -32,4 +32,4 @@ const mapDispatch = (dispatch) => ({
 	},
 })
 
-export default connect(mapState, mapDispatch)(Detail)
+export default connect(mapState, mapDispatch)(withRouter(Detail))
