@@ -149,3 +149,19 @@ export const LoadMore = styled.div`
 	margin: 30px 0;
 	cursor: pointer;
 `
+
+export const BackTop = styled.div`
+	position: fixed;
+	right: 100px;
+	bottom: 100px;
+	width: 50px;
+	height: 72px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	background: url('https://ftp.bmp.ovh/imgs/2020/06/aae9bdad25a2312a.jpg');
+	background-size: contain;
+	font-size: 12px;
+	color: #ec6149;
+`

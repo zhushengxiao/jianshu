@@ -7,6 +7,7 @@ const defaultState = fromJS({
 	recommendList: [],
 	writerList: [],
 	articlePage: 0,
+	showScroll: false,
 })
 
 // reducer 导出的必须是一个纯函数：给定一个固定的输入，必须返回一个固定的输出
@@ -26,6 +27,8 @@ export default (state = defaultState, action) => {
 				articleList: state.get('articleList').concat(action.list),
 				articlePage: action.nextPage,
 			})
+		case actionTypes.TOGGLE_TOP_SHOW:
+			return state.set('showScroll', action.show)
 		default:
 			return state
 	}
