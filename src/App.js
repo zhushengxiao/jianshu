@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import './App.css'
 import Header from './common/header/index'
+import Footer from './common/footer/index'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './page/home'
@@ -15,6 +16,7 @@ function App() {
 					<Header></Header>
 					<Route path="/" exact component={Home}></Route>
 					<Route path="/detail" exact component={Detail}></Route>
+					<Footer></Footer>
 				</BrowserRouter>
 			</Fragment>
 		</Provider>

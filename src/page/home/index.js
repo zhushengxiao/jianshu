@@ -3,9 +3,15 @@ import Tpoic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
+import { actionCreators } from './store/index'
+import { connect } from 'react-redux'
 import { HomeWrapper, HomeLeft, HomeRight } from './styled'
 
 class Home extends Component {
+	componentDidMount() {
+		this.props.fetchHomeData()
+	}
+
 	render() {
 		return (
 			<HomeWrapper>
@@ -17,13 +23,20 @@ class Home extends Component {
 					/>
 					<Tpoic></Tpoic>
 					<List></List>
+				</HomeLeft>
+				<HomeRight>
 					<Recommend></Recommend>
 					<Writer></Writer>
-				</HomeLeft>
-				<HomeRight>right</HomeRight>
+				</HomeRight>
 			</HomeWrapper>
 		)
 	}
 }
 
-export default Home
+const mapDispatch = (dispatch) => ({
+	fetchHomeData() {
+		dispatch(actionCreators.fetchHomeData())
+	},
+})
+
+export default connect(null, mapDispatch)(Home)
