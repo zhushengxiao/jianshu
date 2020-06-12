@@ -93,23 +93,19 @@ class Header extends Component {
 
 					<SearchWarpper>
 						<CSSTransition
-							in={this.props.isFocused}
+							in={isFocused}
 							timeout={330}
 							classNames="slide"
 						>
 							<NavSearch
-								className={
-									this.props.isFocused ? 'focused' : ''
-								}
-								onFocus={() =>
-									this.props.handleInputFocus(list)
-								}
-								onBlur={this.props.handleInputBlur}
+								className={isFocused ? 'focused' : ''}
+								onFocus={() => handleInputFocus(list)}
+								onBlur={handleInputBlur}
 							></NavSearch>
 						</CSSTransition>
 						<i
 							className={
-								this.props.isFocused
+								isFocused
 									? 'iconfont focused zoom'
 									: 'iconfont zoom'
 							}
@@ -120,7 +116,8 @@ class Header extends Component {
 					</SearchWarpper>
 					<Addition>
 						<Button className="writting">
-							<i className="iconfont">&#xe96c;</i>写文章
+							<i className="iconfont articlIcon">&#xe96c;</i>
+							写文章
 						</Button>
 						<Button className="reg">注册</Button>
 					</Addition>
@@ -165,7 +162,7 @@ const mapDispatchToProps = (dispatch) => ({
 		} else {
 			originAngle = 0
 		}
-		spin.style.transform = `rotate(${originAngle + 360}deg)`
+		spin.style.transform = `rotate(${originAngle + 180}deg)`
 		if (page < totalPage - 1) {
 			dispatch(actionCreators.changePage(page + 1))
 		} else {

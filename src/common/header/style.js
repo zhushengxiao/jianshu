@@ -125,6 +125,9 @@ export const Button = styled.div`
 		color: #fff;
 		background: #ec6149;
 	}
+	.articlIcon {
+		margin-right: 6px;
+	}
 `
 
 export const SearchInfo = styled.div`
@@ -153,7 +156,7 @@ export const SearchInfoSwitch = styled.span`
 		display: block;
 		float: left;
 		font-size: 14px;
-		margin-right: 50px;
+
 		transition: all 0.28s ease-in;
 		transform: rotate(0deg);
 		transform-origin: center center;
